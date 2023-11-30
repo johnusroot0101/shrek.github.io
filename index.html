@@ -8,34 +8,61 @@
       margin: 0;
       overflow: hidden;
       background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    .centered-text {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateX(-100%);
+    .centered-image img,
+    .centered-text,
+    .hidden-text {
       font-family: Arial, sans-serif;
       font-size: 24px;
       color: #fff;
-      animation: fadeInLeft 2s ease-in-out forwards;
     }
 
-    @keyframes fadeInLeft {
+    .centered-image img {
+      max-width: 100%;
+      height: auto;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    .centered-text {
+      margin-top: 20px; /* Adjust as needed */
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .hidden-text {
+      display: none;
+    }
+
+    @keyframes fadeIn {
       0% {
         opacity: 0;
-        transform: translateX(-100%);
       }
       100% {
         opacity: 1;
-        transform: translateX(0);
       }
     }
   </style>
 </head>
 <body>
-  <div class="centered-text">
+  <div class="centered-image">
+    <img src="https://raw.githubusercontent.com/johnusroot0101/shrek.github.io/main/strip2.png" alt="Mobius Strip Image">
+  </div>
+  <div class="centered-text" onclick="toggleHiddenText()">
     ahKT4shniZEPJxa1qUO5K00ckCdBnWnKm09oDx72XCg=
   </div>
+  <div class="hidden-text" id="hiddenText">
+    Encryption Key
+  </div>
+
+  <!-- Link to the JavaScript file -->
+  <script src="script.js"></script>
 </body>
 </html>
